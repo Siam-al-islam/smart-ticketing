@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
     <!-- daisy -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,8 +22,8 @@
         rel="stylesheet">
 </head>
 
-<body class="max-w-[1170px] mx-auto">
-    <header>
+<body class="px-3">
+    <header class="max-w-[1170px] mx-auto font-raleway">
         <!-- navbar  -->
         <nav>
             <div class="navbar bg-base-100">
@@ -43,7 +44,7 @@
                             <li><a>Search</a></li>
                         </ul>
                     </div>
-                    <a class="text-4xl font-extrabold cursor-pointer">P-Ticket</a>
+                    <a class="text-2xl lgtext-4xl font-extrabold cursor-pointer">P-Ticket</a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
                     <ul class="menu menu-horizontal px-1">
@@ -54,12 +55,65 @@
                     </ul>
                 </div>
                 <div class="navbar-end">
-                    <a class="btn bg-[#1cd1001b] border border-[#1DD100] text-xl text-[#1DD100] font-bold">Bus
+                    <a class="btn bg-[#1cd1001b] border border-[#1DD100] lg:text-xl text-[#1DD100] font-bold">Bus
                         <img src="images/bus-icon.png" alt=""></a>
                 </div>
             </div>
         </nav>
+        <!-- banner -->
+        <section class="bg-[url(images/banner.png)] bg-center rounded-[32px] mt-7">
+            <div class="pt-[70px] pb-[135px] text-center max-w-[742px] mx-auto">
+                <div class="mb-8 space-y-4 text-white">
+                    <h1 class="text-6xl font-extrabold">
+                        End-to-End Travel with <br> <span class="text-[#1DD100]">P Paribahan</span>
+                    </h1>
+                    <p>Yes, you can run unit tests and view the results directly within the app. The integrated testing
+                        features
+                        allow for a streamlined .
+                    </p>
+                </div>
+                <button class="btn bg-[#1DD100] border-0 font-bold">Buy Tickets</button>
+            </div>
+        </section>
     </header>
+    <main class="mt-32">
+        <section class="flex max-w-[1170px] mx-auto gap-6">
+            <div class="bg-[#FFBF0F] p-11">
+                <div>
+                    <h2>
+                        15% OFF
+                    </h2>
+                    <p>on your next purchase</p>
+                    <span>use by January 2024</span>
+                </div>
+                <div>
+                    <h2>
+                        NEW15
+                    </h2>
+                    <span>
+                        Coupon Code
+                    </span>
+                </div>
+            </div>
+            <div class="bg-[#F78C9C] p-11">
+                <div>
+                    <h2>
+                        20% OFF
+                    </h2>
+                    <p>on your next purchase</p>
+                    <span>use by January 2024</span>
+                </div>
+                <div>
+                    <h2>
+                        Couple 20
+                    </h2>
+                    <span>
+                        Coupon Code
+                    </span>
+                </div>
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
