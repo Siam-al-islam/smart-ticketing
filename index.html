@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Online Tickets</title>
     <link rel="stylesheet" href="style/style.css">
     <!-- daisy -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
@@ -73,15 +73,16 @@
                         allow for a streamlined .
                     </p>
                 </div>
-                <button class="btn bg-[#1DD100] border-0 font-bold">Buy Tickets</button>
+                <a href="#ticket"><button class="btn bg-[#1DD100] border-0 font-bold">Buy Tickets</button></a>
             </div>
         </section>
     </header>
     <main class="mt-20">
         <!-- coupon   -->
         <section class="max-w-[1170px] mx-auto ">
-            <div class="flex flex-col lg:flex-row  gap-6 justify-center">
-                <div class="bg-[#FFBF0F] p-5 lg:p-11 flex items-center gap-6 lg:gap-[125px] rounded-2xl">
+            <div class="flex flex-col lg:flex-row gap-6 justify-center">
+                <!-- first coupon  -->
+                <div class="bg-[#FFBF0F] px-4 lg:px-12 flex items-center gap-6 rounded-2xl">
                     <div class="font-inter space-y-3">
                         <h2 class="text-3xl lg:text-5xl font-extrabold">
                             15% OFF
@@ -89,6 +90,7 @@
                         <p class="text-base lg:text-xl font-semibold">on your next purchase</p>
                         <p class="font-medium text-base">use by January 2024</p>
                     </div>
+                    <img src="images/cupon-devider.png" alt="">
                     <div class="space-y-2 text-center">
                         <h2 class="text-2xl lgtext-3xl font-bold">
                             NEW15
@@ -98,7 +100,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="bg-[#F78C9C] p-5 lg:p-11 flex items-center gap-6 lg:gap-[125px] rounded-2xl">
+                <!-- second coupon -->
+                <div class="bg-[#F78C9C] px-4 lg:px-12 flex items-center gap-6 rounded-2xl">
                     <div class="font-inter space-y-3">
                         <h2 class="text-3xl lg:text-5xl font-extrabold">
                             20% OFF
@@ -106,6 +109,7 @@
                         <p class="text-base lg:text-xl font-semibold">on your next purchase</p>
                         <p class="font-medium text-base">use by January 2024</p>
                     </div>
+                    <img src="images/cupon-devider.png" alt="">
                     <div class="space-y-2 text-center">
                         <h2 class="text-2xl lgtext-3xl font-bold">
                             Couple 20
@@ -123,7 +127,7 @@
             </div>
         </section>
         <!-- ph Paribahan  -->
-        <section class="bg-[#F7F8F8] rounded-[50px]">
+        <section id="ticket" class="bg-[#F7F8F8] rounded-[50px]">
             <section class="mt-20 border-t-[3px] border-[#1DD100] rounded-[50px]">
                 <div class="max-w-[1170px] mx-auto mt-28">
                     <div class="max-w-[730px] mx-auto text-center">
@@ -171,6 +175,10 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- border line  -->
+                        <div class="hidden lg:block">
+                            <img src="images/info-devider.png" alt="">
+                        </div>
                         <!-- fare  -->
                         <div class="mt-7 lg:mt-0">
                             <img src="images/fare.png" alt="">
@@ -204,7 +212,11 @@
                             <div class="flex lg:gap-16 gap-11 mt-7 font-inter items-center justify-center">
                                 <div class="flex lg:gap-9 gap-3">
                                     <div class="grid gap-6">
-                                        <div onclick="changeColor()"
+                                        <div
+                                            class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat invisible">
+                                            Hide
+                                        </div>
+                                        <div
                                             class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat">
                                             A1
                                         </div>
@@ -246,6 +258,10 @@
                                         </div>
                                     </div>
                                     <div class="grid gap-6">
+                                        <div
+                                            class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat invisible">
+                                            hide
+                                        </div>
                                         <div
                                             class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat">
                                             A2
@@ -291,6 +307,10 @@
                                 <div class="flex lg:gap-9 gap-3">
                                     <div class="grid gap-6">
                                         <div
+                                            class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat invisible">
+                                            hide
+                                        </div>
+                                        <div
                                             class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat">
                                             A3
                                         </div>
@@ -332,6 +352,10 @@
                                         </div>
                                     </div>
                                     <div class="grid gap-6">
+                                        <div
+                                            class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat">
+                                            A4
+                                        </div>
                                         <div
                                             class="bg-gray-100 lg:py-4 p-3 lg:px-8 px-5 rounded-xl cursor-pointer seat">
                                             A4
@@ -421,6 +445,10 @@
                                 <input type="text" name="" id="" class="py-4 pl-4 rounded-xl border border-[#03071225]"
                                     placeholder="Enter your email id">
                                 <button disabled class="btn bg-[#1DD100] text-white">Next</button>
+                                <div class="flex justify-between underline">
+                                    <a href="">Terms and Conditions</a>
+                                    <a href="">Cancellation Policy</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -428,6 +456,7 @@
             </section>
         </section>
     </main>
+    <!-- footer starded  -->
     <footer class="footer p-10 bg-black text-white mt-20">
         <aside>
             <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd"
