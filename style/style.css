@@ -9,3 +9,13 @@ html {
 .font-inter {
     font-family: "Inter", sans-serif;
 }
+
+/* .seat {
+    color: white;
+    background-color: #1DD100;
+} */
+
+.selectedSeat {
+    color: white;
+    background-color: #1DD100;
+}
