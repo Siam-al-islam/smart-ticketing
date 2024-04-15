@@ -56,3 +56,21 @@ function createNewElement(elementId, elementName, ticketDetails) {
 
     seatDetail.appendChild(element);
 }
+
+// calculate total price 
+function calculateTotalPrice(elementId) {
+    const priceElement = document.getElementById(elementId);
+    const price = parseInt(priceElement.innerText);
+    const totalPrice = price + 550;
+    priceElement.innerText = totalPrice;
+}
+// minus price 
+function substractPrice(elementId) {
+    const priceElement = document.getElementById(elementId);
+    const price = parseInt(priceElement.innerText);
+    const totalPrice = price - 550;
+    priceElement.innerText = totalPrice;
+}
+
+// validate input 
+

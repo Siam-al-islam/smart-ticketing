@@ -18,14 +18,31 @@ document.body.addEventListener('click', (e) => {
             substractSeat('seat-left');
             addNewSeat('added-seat');
             createNewElement('added-seat-detail', 'div', ticketDetails);
+            calculateTotalPrice('total-price');
         } else if (isSelected) {
             const selectedSeat = e.target.closest('.seat');
             selectedSeat.classList.add('bg-gray-100');
             selectedSeat.classList.remove('selectedSeat');
+
             addSeat('seat-left');
             removeNewSeat('added-seat');
+
+            substractPrice('total-price')
         } else {
-            console.error('You can not');
+            alert('you can buy only four tickets');
         }
     }
 });
+
+// validate input 
+function validateInput() {
+    var inputValue = document.getElementById("coupon-input").value;
+    var applyButton = document.getElementById("apply-btn");
+
+    if (inputValue === "NEW15") {
+        applyButton.removeAttribute('disabled');
+    }
+    else {
+        applyButton.setAttribute('disabled');
+    }
+}

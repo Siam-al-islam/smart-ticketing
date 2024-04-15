@@ -419,17 +419,18 @@
                             <hr class="border border-[#8b8f9b4b]">
                             <div class="flex justify-between mb-3 mt-3 font-semibold">
                                 <span>Total Price</span>
-                                <span>BDT <span>1100</span></span>
+                                <span>BDT <span id="total-price">0</span></span>
                             </div>
                             <!-- coupon -->
                             <div class="mb-3">
-                                <input type="text" name="" id="" placeholder="Have any copupon?" class="p-3 rounded-xl">
-                                <button disabled class="btn bg-[#1DD100] text-white">Apply</button>
+                                <input type="text" oninput="validateInput()" name="" id="coupon-input"
+                                    placeholder="Have any copupon?" class="p-3 rounded-xl">
+                                <button disabled id="apply-btn" class="btn bg-[#1DD100] text-white">Apply</button>
                             </div>
                             <!-- grand Total -->
                             <div class="flex justify-between mb-4 mt-3 font-semibold">
                                 <span>Grand Total</span>
-                                <span>BDT <span>1100</span></span>
+                                <span>BDT <span id="grand-total">0</span></span>
                             </div>
                             <!-- form  -->
                             <div class="space-y-5 flex flex-col">
@@ -439,7 +440,7 @@
                                 <p class="font-bold">Phone Number*</p>
                                 <input type="text" name="" id="" class="py-3 pl-4 rounded-xl border border-[#03071225]"
                                     placeholder="Enter your phone number">
-                                <p class="font-bold">Passenger Name*</p>
+                                <p class="font-bold">Passenger Emial*</p>
                                 <input type="text" name="" id="" class="py-4 pl-4 rounded-xl border border-[#03071225]"
                                     placeholder="Enter your email id">
                                 <button disabled class="btn bg-[#1DD100] text-white">Next</button>
