@@ -72,5 +72,18 @@ function substractPrice(elementId) {
     priceElement.innerText = totalPrice;
 }
 
-// validate input 
-
+// discount price calculation 
+function calculateDiscountedPrice(percent) {
+    const applyButton = document.getElementById("apply-btn");
+    applyButton.addEventListener('click', function calculateGrandTotal() {
+        const applyButton = document.getElementById("apply-btn");
+        const inputValue = document.getElementById("coupon-input")
+        const grandTotal = document.getElementById('grand-total');
+        const grandTotalPrice = parseInt(grandTotal.innerText);
+        const discountedPrice = grandTotalPrice * percent / 100;
+        const discountedTotal = grandTotalPrice - discountedPrice;
+        grandTotal.innerText = Math.floor(discountedTotal);
+        applyButton.disabled = true;
+        inputValue.disabled = true;
+    })
+}

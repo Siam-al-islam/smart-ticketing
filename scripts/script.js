@@ -3,6 +3,8 @@ document.body.addEventListener('click', (e) => {
         const allSelectedSeat = document.querySelectorAll('.selectedSeat');
         const selectedSeatLength = allSelectedSeat.length;
         const isSelected = e.target.closest('.selectedSeat');
+        const phoneNumber = document.getElementById("phone-number").value.length;
+        const nextButton = document.getElementById("next-btn");
 
         if (selectedSeatLength < 4 && !isSelected) {
             const selectedSeat = e.target.closest('.seat');
@@ -14,6 +16,10 @@ document.body.addEventListener('click', (e) => {
 
             selectedSeat.classList.remove('bg-gray-100');
             selectedSeat.classList.add('selectedSeat');
+            if (selectedSeatLength < 4 && !isSelected) {
+                nextButton.disabled = false;
+
+            }
 
             substractSeat('seat-left');
             addNewSeat('added-seat');
@@ -24,11 +30,14 @@ document.body.addEventListener('click', (e) => {
             const selectedSeat = e.target.closest('.seat');
             selectedSeat.classList.add('bg-gray-100');
             selectedSeat.classList.remove('selectedSeat');
+            nextButton.disabled = true;
 
             addSeat('seat-left');
             removeNewSeat('added-seat');
-            substractPrice('total-price')
-        } else {
+            substractPrice('total-price');
+            substractPrice('grand-total');
+        }
+        else {
             alert('you can buy only four tickets');
         }
     }
@@ -41,19 +50,13 @@ function validateInput() {
 
     if (inputValue === "NEW15") {
         applyButton.disabled = false;
+        calculateDiscountedPrice(15);
+    }
+    else if (inputValue === "Couple 20") {
+        applyButton.disabled = false;
+        calculateDiscountedPrice(20);
     }
     else {
         applyButton.disabled = true;
     }
 }
-
-//calculation for discount
-function calculateGrandTotal() {
-    const applyButton = document.getElementById("apply-btn");
-    const grandTotal = document.getElementById('grand-total');
-    const grandTotalPrice = parseInt(grandTotal.innerText);
-    const discountedPrice = grandTotalPrice * 15 / 100;
-    const discountedTotal = grandTotalPrice - discountedPrice;
-    grandTotal.innerText = Math.floor(discountedTotal);
-    applyButton.disabled = true;
-}   
