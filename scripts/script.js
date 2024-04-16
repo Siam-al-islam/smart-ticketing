@@ -4,6 +4,7 @@ document.body.addEventListener('click', (e) => {
         const selectedSeatLength = allSelectedSeat.length;
         const isSelected = e.target.closest('.selectedSeat');
         const nextButton = document.getElementById("next-btn");
+        const applyButton = document.getElementById("apply-btn");
 
         if (selectedSeatLength < 4 && !isSelected) {
             const phoneNumber = document.getElementById("phone-number").value.length;
@@ -22,13 +23,18 @@ document.body.addEventListener('click', (e) => {
             if (selectedSeatsLength > 0 && phoneNumber > 0) {
                 nextButton.disabled = false;
             }
+            else if (selectedSeatLength > 2 && !isSelected) {
+                document.getElementById("coupon-input").disabled = false;
+            }
 
             substractSeat('seat-left');
             addNewSeat('added-seat');
             createNewElement('added-seat-detail', 'div', ticketDetails);
             calculateTotalPrice('total-price');
             calculateTotalPrice('grand-total');
-        } else if (isSelected) {
+        }
+
+        else if (isSelected) {
             const selectedSeat = e.target.closest('.seat');
             const seatNo = selectedSeat.innerText;
             const selectedSeatRowElem = document.querySelector(`.ticket-detail-row.${seatNo}`);
@@ -68,7 +74,8 @@ document.getElementById("phone-number").addEventListener('input', (e) => {
     }
 })
 
-// validate input 
+// validate discount input 
+
 function validateInput() {
     const inputValue = document.getElementById("coupon-input").value;
     const applyButton = document.getElementById("apply-btn");
@@ -76,12 +83,15 @@ function validateInput() {
     if (inputValue === "NEW15") {
         applyButton.disabled = false;
         calculateDiscountedPrice(15);
+        addClass("error-message", 'hidden');
     }
     else if (inputValue === "Couple 20") {
         applyButton.disabled = false;
         calculateDiscountedPrice(20);
+        addClass("error-message", 'hidden');
     }
     else {
         applyButton.disabled = true;
+        removeClass("error-message", 'hidden')
     }
 }

@@ -421,11 +421,16 @@
                                 <span>Total Price</span>
                                 <span>BDT <span id="total-price">0</span></span>
                             </div>
+                            <div id="discount-div" class="flex justify-between mb-3 mt-2 hidden">
+                                <span>Discount Price</span>
+                                <span>BDT <span id="discount-price">0</span></span>
+                            </div>
                             <!-- coupon -->
                             <div class="mb-3">
-                                <input type="text" oninput="validateInput()" name="" id="coupon-input"
+                                <input disabled type="text" oninput="validateInput()" name="" id="coupon-input"
                                     placeholder="Have any copupon?" class="p-3 rounded-xl">
                                 <button disabled id="apply-btn" class="btn bg-[#1DD100] text-white">Apply</button>
+                                <p id="error-message" class="text-red-700 hidden">Invalid Coupon</p>
                             </div>
                             <!-- grand Total -->
                             <div class="flex justify-between mb-4 mt-3 font-semibold">

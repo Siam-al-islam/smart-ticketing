@@ -79,8 +79,11 @@ function calculateDiscountedPrice(percent) {
         const applyButton = document.getElementById("apply-btn");
         const inputValue = document.getElementById("coupon-input")
         const grandTotal = document.getElementById('grand-total');
+        const discount = document.getElementById("discount-price");
+        removeClass("discount-div", 'hidden');
         const grandTotalPrice = parseInt(grandTotal.innerText);
         const discountedPrice = grandTotalPrice * percent / 100;
+        discount.innerText = Math.floor(discountedPrice);
         const discountedTotal = grandTotalPrice - discountedPrice;
         grandTotal.innerText = Math.floor(discountedTotal);
         applyButton.disabled = true;
