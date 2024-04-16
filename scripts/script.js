@@ -19,6 +19,7 @@ document.body.addEventListener('click', (e) => {
             addNewSeat('added-seat');
             createNewElement('added-seat-detail', 'div', ticketDetails);
             calculateTotalPrice('total-price');
+            calculateTotalPrice('grand-total');
         } else if (isSelected) {
             const selectedSeat = e.target.closest('.seat');
             selectedSeat.classList.add('bg-gray-100');
@@ -26,7 +27,6 @@ document.body.addEventListener('click', (e) => {
 
             addSeat('seat-left');
             removeNewSeat('added-seat');
-
             substractPrice('total-price')
         } else {
             alert('you can buy only four tickets');
@@ -36,13 +36,24 @@ document.body.addEventListener('click', (e) => {
 
 // validate input 
 function validateInput() {
-    var inputValue = document.getElementById("coupon-input").value;
-    var applyButton = document.getElementById("apply-btn");
+    const inputValue = document.getElementById("coupon-input").value;
+    const applyButton = document.getElementById("apply-btn");
 
     if (inputValue === "NEW15") {
-        applyButton.removeAttribute('disabled');
+        applyButton.disabled = false;
     }
     else {
-        applyButton.setAttribute('disabled');
+        applyButton.disabled = true;
     }
 }
+
+//calculation for discount
+function calculateGrandTotal() {
+    const applyButton = document.getElementById("apply-btn");
+    const grandTotal = document.getElementById('grand-total');
+    const grandTotalPrice = parseInt(grandTotal.innerText);
+    const discountedPrice = grandTotalPrice * 15 / 100;
+    const discountedTotal = grandTotalPrice - discountedPrice;
+    grandTotal.innerText = Math.floor(discountedTotal);
+    applyButton.disabled = true;
+}   
