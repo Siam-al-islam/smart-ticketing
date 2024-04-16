@@ -3,10 +3,10 @@ document.body.addEventListener('click', (e) => {
         const allSelectedSeat = document.querySelectorAll('.selectedSeat');
         const selectedSeatLength = allSelectedSeat.length;
         const isSelected = e.target.closest('.selectedSeat');
-        const phoneNumber = document.getElementById("phone-number").value.length;
         const nextButton = document.getElementById("next-btn");
 
         if (selectedSeatLength < 4 && !isSelected) {
+            const phoneNumber = document.getElementById("phone-number").value.length;
             const selectedSeat = e.target.closest('.seat');
             const ticketDetails = {
                 seatNo: selectedSeat.innerText,
@@ -16,9 +16,8 @@ document.body.addEventListener('click', (e) => {
 
             selectedSeat.classList.remove('bg-gray-100');
             selectedSeat.classList.add('selectedSeat');
-            if (selectedSeatLength < 4 && !isSelected) {
+            if (selectedSeatLength < 4 && !isSelected || phoneNumber >= 4) {
                 nextButton.disabled = false;
-
             }
 
             substractSeat('seat-left');
