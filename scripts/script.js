@@ -16,7 +16,10 @@ document.body.addEventListener('click', (e) => {
 
             selectedSeat.classList.remove('bg-gray-100');
             selectedSeat.classList.add('selectedSeat');
-            if (selectedSeatLength < 4 && !isSelected || phoneNumber >= 4) {
+
+            const selectedSeats = document.querySelectorAll('.selectedSeat');
+            const selectedSeatsLength = selectedSeats.length;
+            if (selectedSeatsLength > 0 && phoneNumber > 0) {
                 nextButton.disabled = false;
             }
 
@@ -27,9 +30,20 @@ document.body.addEventListener('click', (e) => {
             calculateTotalPrice('grand-total');
         } else if (isSelected) {
             const selectedSeat = e.target.closest('.seat');
+            const seatNo = selectedSeat.innerText;
+            const selectedSeatRowElem = document.querySelector(`.ticket-detail-row.${seatNo}`);
+
             selectedSeat.classList.add('bg-gray-100');
             selectedSeat.classList.remove('selectedSeat');
-            nextButton.disabled = true;
+
+            const selectedSeats = document.querySelectorAll('.selectedSeat');
+            const selectedSeatsLength = selectedSeats.length;
+            const phoneNumber = document.getElementById("phone-number").value.length;
+            if (selectedSeatsLength <= 0 && phoneNumber > 0) {
+                nextButton.disabled = true;
+            }
+
+            selectedSeatRowElem && selectedSeatRowElem.remove();
 
             addSeat('seat-left');
             removeNewSeat('added-seat');
@@ -41,6 +55,18 @@ document.body.addEventListener('click', (e) => {
         }
     }
 });
+
+document.getElementById("phone-number").addEventListener('input', (e) => {
+    const phoneNoLength = e.target.value.length;
+    const selectedSeats = document.querySelectorAll('.selectedSeat');
+    const selectedSeatsLength = selectedSeats.length;
+    const nextButton = document.getElementById("next-btn");
+    if (selectedSeatsLength > 0 && phoneNoLength > 0) {
+        nextButton.disabled = false;
+    } else if (phoneNoLength <= 0) {
+        nextButton.disabled = true;
+    }
+})
 
 // validate input 
 function validateInput() {
